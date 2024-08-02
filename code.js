@@ -1,5 +1,7 @@
 figma.showUI(__html__);
 
+console.log('Plugin script is running');
+
 figma.ui.onmessage = (msg) => {
   console.log("Plugin received message:", msg);
   try {
