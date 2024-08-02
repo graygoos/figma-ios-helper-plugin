@@ -1,0 +1,10 @@
+<script>
+function sendMessage(type) {
+  parent.postMessage({ pluginMessage: { type } }, '*');
+}
+</script>
+<button onclick="sendMessage('delete')">Delete</button>
+<button onclick="sendMessage('duplicate')">Duplicate</button>
+<button onclick="sendMessage('copy')">Copy</button>
+<button onclick="sendMessage('paste')">Paste</button>
+<!-- Add more buttons as needed -->
