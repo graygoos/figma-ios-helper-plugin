@@ -1,10 +1,16 @@
 <script>
 function sendMessage(type) {
+  console.log("Sending message to plugin:", type);
   parent.postMessage({ pluginMessage: { type } }, '*');
 }
+
+window.onmessage = (event) => {
+  if (event.data.pluginMessage) {
+    console.log("Received message from plugin:", event.data.pluginMessage);
+  }
+};
 </script>
 <button onclick="sendMessage('delete')">Delete</button>
-<button onclick="sendMessage('duplicate')">Duplicate</button>
 <button onclick="sendMessage('copy')">Copy</button>
 <button onclick="sendMessage('paste')">Paste</button>
-<!-- Add more buttons as needed -->
+<button onclick="sendMessage('duplicate')">Duplicate</button>
